@@ -2,3 +2,51 @@ For this assignment I am planning on just making a simple demonstartion of javas
 
 I will have a seperate css style to stylize it a bit but I will do that after the site has been made.
 
+What I want to try to do in my implementation is to have a box that takes input from a text prompt to create a set of data for the type of car they have.
+
+If I can figure it out, I want to use two libraries: Splide (https://splidejs.com/#06) and React (https://react.dev). 
+Splide is used to create slide shows and I would use that to create a slide show of cars.
+I want to use React to make the user interface more robust.
+
+while I was making this I think im going to use the google apis library to store values
+ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<h1>What Kind of car</h1>
+<div class= "container">
+//this is where the input would be taken and the prompt will be shown in boxes.
+//this will iterate a few times to collect all the data
+</div>
+
+
+<script>
+let make(str), model(str), mileage(int), clean_title(bool);
+const cars = ["An array of different car makes"]
+
+function greet()
+//Some greet function to greet the user by the name they enter
+
+//google apis library
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<input type="text" class="item_name" value="model">
+<input type="text" class="item_name" value="make">
+<input type="int" class="item_name" value="mileage">
+<input type="bool" class="item_name" value="clean_title">
+// I will try to make something that catches invalid inputs
+// A button that does the following after you enter the info{
+//display all car values
+
+//some conditional telling you if you have a lot of miles
+
+//I will also try to compare values int the car array list to see if it is the registry
+}
+
+</script>
+</body>
