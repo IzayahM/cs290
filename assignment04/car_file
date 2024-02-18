@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>React JavaScript Showcase</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    input[type="text"] {
+        width: calc(100% - 22px);
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    button {
+        width: 100%;
+        padding: 10px 0;
+        margin: 10px 0;
+        cursor: pointer;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+    button:hover {
+        background-color: #0056b3;
+    }
+    p {
+        margin: 10px;
+        font-size: 18px;
+        text-align: center;
+    }
+</style>
+</head>
+<!-- more about taking user input from react https://www.react.express/react/user_input -->
+<body>
+    <div id="root" class="container"></div>
+    <!-- React library for UI components -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <!-- ReactDOM handles updates to the objects on the page-->
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+    <!-- babel for React library, makes it compatible with older browsers -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <script type="text/babel">
+function App() {
+
+    const [output, set_output] = React.useState("");
+    const [make, setMake] = React.useState("");
+    const [model, setModel] = React.useState("");
+    const [mileage, setMileage] = React.useState(0);
+    const [checkEngine, setCheckEngine] = React.useState(false);
+
+    function checkVehicle() {
+
+        if (checkEngine == true){
+            vehicleInfo+= "Better get that engine checked!";
+        }
+        let vehicleInfo = `Vehicle Make: ${make}, Model: ${model}, Mileage: ${mileage}, Check Engine: ${checkEngine}`;
+        set_output(vehicleInfo);
+    }
+
+    return (
+        // info on inputs: https://react.dev/reference/react-dom/components/input, I used chatGPT to help me figure out the event partto work with the set elements
+        <div>
+            <h1>React JavaScript Showcase</h1>
+
+            <input
+                type="text"
+                placeholder="Enter vehicle make"
+                value={make}
+                onChange={(event) => setMake(event.target.value)}
+                
+            />
+            <input
+                type="text"
+                placeholder="Enter vehicle model"
+                value={model}
+                onChange={(event) => setModel(event.target.value)}
+            />
+            <input
+                type="number"
+                placeholder="Enter vehicle mileage"
+                value={mileage}
+                onChange={(event) => setMileage(event.target.value)}
+            />
+            <br/>
+            <label>
+                Check Engine:
+                <input
+                    type="checkbox"
+                    checked={checkEngine}
+                    onChange={(event) => setCheckEngine(event.target.checked)}
+                />
+            </label>
+            // when button is clicked refreshes the input.
+            <button onClick={checkVehicle}>Check Vehicle</button>
+             <p>{output}</p>
+    
+        </div>
+    );
+}
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+    </script>
+</body>
+</html>
