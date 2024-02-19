@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>React JavaScript Showcase</title>
+<title>Car Information React</title>
 </head>
 <!-- more about taking user input from react https://www.react.express/react/user_input -->
 <body>
@@ -35,7 +35,7 @@ function App() {
     return (
         // info on inputs: https://react.dev/reference/react-dom/components/input, I used chatGPT to help me figure out the event partto work with the set elements
         <div>
-            <h1>React JavaScript Showcase</h1>
+            <h1>Enter car information</h1>
 
             <input
                 type="text"
