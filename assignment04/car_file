@@ -1,12 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Information React</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Info React</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url("https://www.shutterstock.com/shutterstock/videos/1096229783/thumb/6.jpg?ip=x480");
+            background-size: cover;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(to top right, #33cccc 0%, #000099 100%);
+            border-radius: 10px;
+        }
+        h1 {
+            color: #ffffff;
+            text-align: center;
+        }
+        input[type="text"] {
+            width: 400px;
+            padding: 10px;
+            margin: 10px;
+            border: 5px solid #000000;
+            border-radius: 5px;
+        }
+        button {
+            width: 500px;
+            padding: 10px 0;
+            margin: 10px 0;
+            cursor:crosshair;
+            background-color: #00b064;
+            color: #fff;
+            border-radius: 5px;
+
+        }
+        button:hover {
+            background-color: #039076;
+        }
+        p {
+            margin: 10px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+        }
+    </style>
 </head>
 <!-- more about taking user input from react https://www.react.express/react/user_input -->
-<body>
+<body onload="show_alert()">
     <div id="root" class="container"></div>
     <!-- React library for UI components -->
     <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
@@ -15,66 +62,80 @@
     <!-- babel for React library, makes it compatible with older browsers -->
     <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
     <script type="text/babel">
+
+function show_alert() {
+    var alert_txt = "Try typing in Make: Jeep and for Model: Grand Cherokee";
+    alert (alert_txt);
+  }
+
 function App() {
-
+    var car_img = ""
     const [output, set_output] = React.useState("");
-    const [make, setMake] = React.useState("");
-    const [model, setModel] = React.useState("");
-    const [mileage, setMileage] = React.useState(0);
-    const [checkEngine, setCheckEngine] = React.useState(false);
+    const [make, set_make] = React.useState("");
+    const [model, set_model] = React.useState("");
+    const [mileage, set_mileage] = React.useState(0);
+    const [check_engine, set_check] = React.useState(false);
 
-    function checkVehicle() {
-
-        if (checkEngine == true){
-            vehicleInfo+= "Better get that engine checked!";
+    function check_vehicle() {
+        let vehicle_info = "";
+        vehicle_info += `Vehicle Make: ${make}, Model: ${model}, Mileage: ${mileage}`;
+        if (make === "Jeep" && model === "Grand Cherokee"){
+            car_img += "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR6Cl1VMxlqR8EcRm4ZtVtm0yfT-uxAIciPWcocKEDh-q1L8dzS0H38Ichu3U2dP1euztE&usqp=CAU"
         }
-        let vehicleInfo = `Vehicle Make: ${make}, Model: ${model}, Mileage: ${mileage}, Check Engine: ${checkEngine}`;
-        set_output(vehicleInfo);
+
+        if (check_engine){
+            vehicle_info+= "\nBetter get that engine checked!";
+        }
+        else{
+            vehicle_info+= "\nYep engine seems good...";
+        }
+        set_output(
+            <div>
+                <p>{vehicle_info}</p>
+                {car_img && <img src={car_img} alt = "Car image"/>}
+            </div> 
+        );
     }
 
     return (
         // info on inputs: https://react.dev/reference/react-dom/components/input, I used chatGPT to help me figure out the event partto work with the set elements
         <div>
-            <h1>Enter car information</h1>
+            <h1>Please enter car info</h1>
 
             <input
                 type="text"
                 placeholder="Enter vehicle make"
                 value={make}
-                onChange={(event) => setMake(event.target.value)}
+                onChange={(event) => set_make(event.target.value)}
                 
             />
             <input
                 type="text"
                 placeholder="Enter vehicle model"
                 value={model}
-                onChange={(event) => setModel(event.target.value)}
+                onChange={(event) => set_model(event.target.value)}
             />
             <input
                 type="number"
                 placeholder="Enter vehicle mileage"
                 value={mileage}
-                onChange={(event) => setMileage(event.target.value)}
+                onChange={(event) => set_mileage(event.target.value)}
             />
             <br/>
             <label>
                 Check Engine:
                 <input
                     type="checkbox"
-                    checked={checkEngine}
-                    onChange={(event) => setCheckEngine(event.target.checked)}
+                    checked={check_engine}
+                    onChange={(event) => set_check(event.target.checked)}
                 />
             </label>
-            // when button is clicked refreshes the input.
-            <button onClick={checkVehicle}>Check Vehicle</button>
+            <button onClick={check_vehicle}>Check Vehicle</button>
              <p>{output}</p>
-    
         </div>
-    );
+    );// when button is clicked refreshes the output.
 }
-
 ReactDOM.render(<App />, document.getElementById('root'));
-
     </script>
 </body>
 </html>
