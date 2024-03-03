@@ -1,0 +1,7 @@
+For this website I think Im going to make a clicker game that will run on a server using node.js to run js on the server.
+This app will be able to save user data (score) and read score from the file.
+In the future if I decide to continue this I might make it more styilized with animations and upgrades but for this implementation I am goint to keep it pretty basic.
+ 
+  To use this you will need to have node.js installed. https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
+The page will save in sync when the game is being played using the writeToFile() function from node js https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs
+It will also use readFile from nodejs to read from that file if it existsto load in the score.
