@@ -5,3 +5,7 @@ In the future if I decide to continue this I might make it more styilized with a
   To use this you will need to have node.js installed. https://nodejs.org/en/learn/getting-started/how-to-install-nodejs
 The page will save in sync when the game is being played using the writeToFile() function from node js https://nodejs.org/en/learn/manipulating-files/writing-files-with-nodejs
 It will also use readFile from nodejs to read from that file if it existsto load in the score.
+
+To run this type "node serve.js" in your terminal then in your browser go to:http://localhost:8000
+If the save button is pressed it should create a score.txt file that has the number of clicks.
+On reloading the server the score will be read from this file.
