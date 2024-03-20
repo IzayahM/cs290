@@ -1,4 +1,4 @@
-body {
+body:not(.dark-mode):not(.duck-mode) {
     font-family: Arial, sans-serif;
     background: linear-gradient(to top right, #6600a6 0%, #5e0000 100%);
     height: 1280px;
@@ -6,15 +6,47 @@ body {
     padding: 0;
 }
 
+body.dark-mode {
+    font-family: 'Astloch';
+    font-size:x-large;
+    background-image: url(https://w.wallha.com/ws/14/ogOdyeuZ.png);
+    background-size:50%;
+    background-color: rgb(39, 39, 39)
+}
+
+body.duck-mode {
+    font-family: "Comic Sans MS", "Comic Sans";
+    background-image: url(https://thumbs.dreamstime.com/b/yellow-rubber-duck-isolated-white-background-29873436.jpg);
+    background-size:2%;
+    background-color: rgb(245, 245, 39);
+
+}
+.dropdown-menu {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.5s ease;
+}
+
+.dropdown-menu:hover {
+    background-color: #ff4545;
+}
+
+
 h1 {
     text-align: center;
     color: #c45858;
 }
+
 .para {
-text-align: center;
-color: #6d71e4;
-font-weight: bold;
-font-size: 24px;
+    text-align: center;
+    color: #6d71e4;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .clickMe {
@@ -29,7 +61,7 @@ font-size: 24px;
     color: #fff;
     border: none;
     border-radius: 5px;
-    cursor: pointer;
+    cursor: crosshair;
     transition: background-color 0.5s ease;
 }
 
