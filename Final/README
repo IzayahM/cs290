@@ -8,3 +8,28 @@ It will also use readFile from nodejs to read from that file if it existsto load
 To run this type "node serve.js" in your terminal then in your browser go to:http://localhost:8000
 If the save button is pressed it should create a score.txt file that has the number of clicks.
 On reloading the server the score will be read from this file
+
+re-review each of the sites you picked at the start of the term, reviewing them now with your new knowledge of
+web development might make you notice more of some kinds of problems and make some of the problems less of a problem.
+Be sure to include any thoughts you have on why your thoughts or opinions might have changed.
+
+After looking at my previous websites, I think my organization of my HTML could use some improvements 
+with orginization such as using elements like <section> or <nav> as it would make it more readable and easier
+to apply specific css styles to those elements. I should have used these elements so the sites weren't so linear and 
+visually pleasing. Secondly I would make the features actually do something on some sites. 
+For example in one of my projects I included links to pages and a search bar. With my knowledge now
+I know I can use something like react to make my search bar find the artist I mentioned on the page. 
+I think my thoughts are somewhat biased now that I know more about JS and using API's because now that I am looking 
+at these I'm thinking of what functions I can add to make it more interactive.
+
+
+review each of your own projects from the point of view of the aspects that you liked and disliked at the start of the term.
+
+For the first three assignments that we did in html I was excited to learn about html in general but I didn't like that 
+it felt like it was just containers with text. Learning how to styilize with css made the learning process more interactive
+I liked implementing interactive elements into our sites like menus but I disliked that the html was lengthy and rather static.
+Once we started dping projects with javascript the implementations felt very regular and interactive. However I still disliked 
+using three different languages since at the time I was unfamiliar with the concept.
+Once we started using API's I liked how easy it was to create functions in javascript but I disliked having to go through all the 
+tutorials and websites to learn and use these APIs. Overall it has been a pretty good learning experience and I learned a lot more
+about design as the languages we used were pretty easy to learn.
