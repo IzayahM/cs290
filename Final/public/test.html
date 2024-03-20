@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click 'em Up</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body> 
+
+    <h1>Click 'em Up</h1>
+
+    <div class="clickMe">
+        <button onclick="incrementScore()">Click Me!</button>
+    </div>
+    <p class="para">Score: <span id="score">0</span></p>
+    <div class="clickMe">
+        <button onclick="saveScore()">SAVE</button>
+        <button onclick="purchaseUpgrade('clickPowerUp')">Upgrade Click Power (10)</button>
+        <button onclick="purchaseUpgrade('clickMultiply'), style.display= 'none'" >Purchase Click Multiplier (50)</button>
+        
+    </div>
+
+    <script>
+        function changeStylesheet() {
+            var styleSelector = document.getElementById("styleSelector");
+            var selectedStyle = styleSelector.value;
+            
+            var defaultSheet = document.getElementById('defaultStylesheet');
+            var alternateSheet = document.getElementById('alternateStylesheet');
+
+            // Enable or disable stylesheets based on the selected option
+            if (selectedStyle === "default") {
+                defaultSheet.disabled = false;
+                alternateSheet.disabled = true;
+            } else if (selectedStyle === "alternate") {
+                defaultSheet.disabled = true;
+                alternateSheet.disabled = false;
+            }
+            }
+    
+        function incrementScore() {
+            //gets request
+            fetch('/increment')
+            //gives text as promise
+                .then(response => response.text())
+                .then(data => {
+                    //debugging
+                    console.log('Data received from server:', data);
+                    //updates score
+                    //data.split(' ')[2] parses data into an array, 3rd element is the score
+                    //ex. [0] == Current
+                    document.getElementById('score').innerText = data.split(' ')[2];
+                })
+                //error handling
+                .catch(error => console.error(error));
+            }
+            
+        function displayScore() {
+                fetch('/score')
+                .then(response => response.text())
+                .then(data => {
+                    //current score
+                    document.getElementById('score').innerText = data.split(' ')[2];
+                })
+                .catch(error => console.error(error));
+            }
+
+        function saveScore() {
+                fetch('/save')
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                })
+                .catch(error => console.error(error));
+            }       
+
+        function purchaseUpgrade(upgradeName) {
+                fetch(`/upgrade/${upgradeName}`)
+                .then(response => response.text())
+                .then(data => {
+                    console.log(data);
+                    // Refresh score after purchasing upgrade
+                    displayScore();
+                })
+                .catch(error => console.error(error));
+            }
+
+        displayScore();
+    </script>
+</body>
+</html>
